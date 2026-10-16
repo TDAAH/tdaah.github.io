@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy · TDAAH Rulebook AI</title>
+<style>
+  :root { color-scheme: light; --bg: #f5eedf; --surface: #fffcf5; --border: #e2d5bb; --text: #2b2620; --muted: #7a6d5b; --accent: #2f5d46; }
+  @media (prefers-color-scheme: dark) {
+    :root { color-scheme: dark; --bg: #13161b; --surface: #1c2028; --border: #323845; --text: #ece6da; --muted: #9aa1ad; --accent: #e3a63d; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1, h2 { font-family: Georgia, "Noto Serif", serif; font-weight: normal; line-height: 1.25; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 32px 0 8px; }
+  .meta { color: var(--muted); margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 4px 20px; }
+  a { color: var(--accent); }
+  li { margin: 4px 0; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+</style>
+<link rel="icon" href="/favicon.png">
+</head>
+<body><main>
+
+<h1>Privacy policy</h1>
+<p class="meta">TDAAH Rulebook AI · Two Dudes and a Hamster LLC · Effective October 13, 2026</p>
+
+<div class="summary">
+<p><strong>The short version.</strong> You don't give us your name, email or any account details. Your games, rulebooks and chat history stay on your phone. When you ask a question, the question (and a photo, if you add one) goes through our server to AI services that write the answer. We keep counts and costs, not what you asked.</p>
+</div>
+
+<h2>Who we are</h2>
+<p>TDAAH Rulebook AI ("the app") is made by Two Dudes and a Hamster LLC ("we", "us"). Questions about this policy: <a href="mailto:twodudesandahamster@gmail.com">twodudesandahamster@gmail.com</a>.</p>
+
+<h2>What stays on your phone</h2>
+<ul>
+  <li>Your game library and the rulebooks you download or add, including their text.</li>
+  <li>Your chat history for each game.</li>
+  <li>Your settings, such as the color theme.</li>
+  <li>A random sign-in key the app creates the first time it opens, kept in your phone's secure storage.</li>
+</ul>
+<p>We can't see any of this. Uninstalling the app deletes it.</p>
+
+<h2>What the app sends to our server</h2>
+<ul>
+  <li><strong>Your questions</strong>, the game they're about, and the few rulebook passages from your phone that match the question, so the answer can cite them.</li>
+  <li><strong>Rulebook pages for game aids:</strong> when you open a setup checklist, quick reference or scoring sheet, the app sends the rulebook's text so the aid can be built from it. That's the publisher's rulebook, not anything about you. A finished aid is saved and reused for everyone with the same game and rulebook edition.</li>
+  <li><strong>Photos</strong>, only when you choose to add one to a question. A photo is resized on your phone first, used for that one question, and never stored.</li>
+  <li><strong>Game names</strong> you search for, so we can find the game and a copy of its rulebook.</li>
+  <li><strong>Your sign-in key</strong>, so the server knows requests come from the same phone. We store only a scrambled (hashed) form of it, never the key itself.</li>
+</ul>
+
+<h2>Services that process your questions</h2>
+<p>To answer a question, our server sends it to:</p>
+<ul>
+  <li><strong>Anthropic</strong> (the Claude AI model), with the matching rulebook passages and any photo, to write the answer, and with rulebook pages to build game aids. For questions the rulebook doesn't cover, and for game and rulebook searches, Claude also searches the web.</li>
+  <li><strong>Voyage AI</strong>, which turns the text of your question into a list of numbers used to spot questions that were already answered.</li>
+</ul>
+<p>These companies process the data to provide their service to us, under their own terms and privacy policies. We don't send them your sign-in key, your phone's identity or anything else that says who you are.</p>
+<p>Our server and database are hosted by <strong>Railway</strong>, and crash reports go to <strong>Sentry</strong> (see below). When your phone downloads a rulebook, it goes directly to the publisher's or another website, which sees your phone's internet address as for any web download.</p>
+
+<h2>What we keep on our server</h2>
+<ul>
+  <li>An anonymous account: a random ID, the scrambled sign-in key, your plan (free or paid) and when the account was created.</li>
+  <li>Usage records: when a game session started, how many questions were asked, the question type (text, photo or web), whether an answer was found, and what it cost us. These records don't include what you asked.</li>
+  <li>Shared answers: answers to common questions, kept so the next player asking the same thing gets an instant answer. These keep the answer, its page or web citations, and the number list from Voyage, but not your question's wording and nothing that links the answer to you.</li>
+  <li>Game details and rulebook links we found, shared by everyone.</li>
+  <li>Server logs: like most websites, our server briefly records basic request details such as your internet (IP) address and which page of our server was requested. We use them to keep the service running and to stop abuse, and our host deletes them after a limited time.</li>
+</ul>
+
+<h2>What we don't do</h2>
+<ul>
+  <li>We don't sell your data or share it for advertising.</li>
+  <li>We don't ask for your name, email, contacts or location.</li>
+  <li>We don't use your questions to build profiles of you.</li>
+</ul>
+
+<h2>Feedback and crash reports</h2>
+<ul>
+  <li><strong>Feedback:</strong> when you use "Send feedback", we receive what you type, the kind of message (problem, idea or other), the game you have open, the app version and your phone type (such as "android 15"). If you add your email, we use it only to reply to that message. Feedback is linked to your anonymous account so we can see repeat reports, and we keep it until it's no longer useful for improving the app.</li>
+  <li><strong>Crash reports:</strong> if the app crashes or hits an error, it sends a report to <strong>Sentry</strong>, a crash-reporting service. A report includes the error, what the app was doing just before it (such as which screen was open and which of our server addresses it called), the app version, and your phone's model and system version. It doesn't include your questions, photos, chat history or anything that says who you are.</li>
+</ul>
+
+<h2>Ads and payments</h2>
+<p>The beta has no ads and no payments. If we add them later, we'll update this policy first to say which ad and payment services are used and what they receive.</p>
+
+<h2>Children</h2>
+<p>The app isn't directed at children under 13, and we don't knowingly collect personal information from them.</p>
+
+<h2>Your choices</h2>
+<ul>
+  <li>Uninstall the app, or clear its data in your phone's settings, to delete everything it keeps on your phone.</li>
+  <li>Don't add photos if you'd rather not send them.</li>
+  <li>To ask about or delete the anonymous account data on our server, email <a href="mailto:twodudesandahamster@gmail.com">twodudesandahamster@gmail.com</a>.</li>
+</ul>
+
+<h2>Changes</h2>
+<p>If we change this policy, we'll update this page and its effective date. For significant changes, we'll also tell you in the app.</p>
+
+<footer>Two Dudes and a Hamster LLC · <a href="mailto:twodudesandahamster@gmail.com">twodudesandahamster@gmail.com</a> · <a href="/">Home</a> · <a href="/privacy">Privacy policy</a> · <a href="/terms">Terms of use</a></footer>
+</main></body>
+</html>
