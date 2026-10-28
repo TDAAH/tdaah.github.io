@@ -1,58 +1,195 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamster Oracle | Two Dudes and a Hamster</title>
-<style>
-  :root { color-scheme: light; --bg: #f5eedf; --surface: #fffcf5; --border: #e2d5bb; --text: #2b2620; --muted: #7a6d5b; --accent: #2f5d46; }
-  @media (prefers-color-scheme: dark) {
-    :root { color-scheme: dark; --bg: #13161b; --surface: #1c2028; --border: #323845; --text: #ece6da; --muted: #9aa1ad; --accent: #e3a63d; }
-  }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  h1, h2 { font-family: Georgia, "Noto Serif", serif; font-weight: normal; line-height: 1.25; }
-  h1 { font-size: 2rem; margin: 0 0 4px; }
-  h2 { font-size: 1.3rem; margin: 32px 0 8px; }
-  .meta { color: var(--muted); margin: 0 0 24px; }
-  .summary { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 4px 20px; }
-  a { color: var(--accent); }
-  li { margin: 4px 0; }
-  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
-</style>
-<meta name="description" content="Hamster Oracle answers board game rules questions from the rulebook, cited to the page. Made by Two Dudes and a Hamster LLC.">
+<title>Hamster Oracle | Board Game Rules Assistant</title>
+<meta name="description" content="Find board game rules, learn new games, follow setup checklists, and keep game night moving with Hamster Oracle by Two Dudes and a Hamster.">
 <link rel="canonical" href="https://tdaah.com/hamsteroracle/">
+<meta name="theme-color" content="#FCF9EF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Two Dudes and a Hamster">
+<meta property="og:title" content="Hamster Oracle | Board Game Rules Assistant">
+<meta property="og:description" content="Find board game rules, learn new games, follow setup checklists, and keep game night moving with Hamster Oracle by Two Dudes and a Hamster.">
+<meta property="og:url" content="https://tdaah.com/hamsteroracle/">
+<meta property="og:image" content="https://tdaah.com/img/og-hamsteroracle.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Hamster Oracle app icon, an orange hamster holding a crystal ball, beside the app home screen">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico?v=tdaah" sizes="48x48">
 <link rel="icon" type="image/png" href="/favicon.png?v=tdaah" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=tdaah">
+<link rel="preload" href="/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css?v=3">
+<link rel="preload" as="image" type="image/webp" href="/img/hamster-oracle-icon-400.webp" imagesrcset="/img/hamster-oracle-icon-400.webp 400w, /img/hamster-oracle-icon-720.webp 720w" imagesizes="(max-width: 860px) 200px, 360px">
+<link rel="stylesheet" href="/hamsteroracle.css?v=1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hamster Oracle","applicationCategory":"GameApplication","operatingSystem":"Android","url":"https://tdaah.com/hamsteroracle/","downloadUrl":"https://play.google.com/store/apps/details?id=com.tdaah.rulebookai","image":"https://tdaah.com/img/hamster-oracle-icon-720.webp","publisher":{"@type":"Organization","name":"Two Dudes and a Hamster LLC","url":"https://tdaah.com/"}}</script>
+<script src="/site.js?v=2" defer></script>
 <meta name="google-site-verification" content="z_hZndp0DMn18hiRVPLTV0Z0UfmhCc6XPLeAyqX2SA0" />
 </head>
-<body><main>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Two Dudes and a Hamster home"><img src="/favicon.png?v=tdaah" alt="" width="36" height="36"><span>Two Dudes and a Hamster</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#games">Our Games</a></li>
+        <li><a href="/hamsteroracle/" aria-current="page">Hamster Oracle</a></li>
+        <li><a href="#download">Download</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
 
-<p class="meta"><a href="/">&larr; Two Dudes and a Hamster</a></p>
-<p><img src="/icon.png" alt="Hamster Oracle" width="128" height="128" style="border-radius: 28px"></p>
-<h1>Hamster Oracle</h1>
-<p class="meta">Board game rules questions, answered from the rulebook and cited to the page.</p>
+<div class="ho">
+<section class="ho-hero ho-sage" aria-labelledby="ho-title">
+  <div class="wrap">
+    <div class="ho-hero-text">
+      <p class="ho-kicker">A board game app from Two Dudes and a Hamster LLC</p>
+      <h1 id="ho-title">Hamster Oracle</h1>
+      <p class="ho-tagline">Tiny brain. Infinite wisdom.</p>
+      <p class="ho-lede"><strong>Find the rules. Learn the game. Keep playing.</strong></p>
+      <p>Hamster Oracle helps board game groups find answers, learn unfamiliar games, and keep game night moving with useful tabletop tools.</p>
+      <div class="ho-get">
+        <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.tdaah.rulebookai" aria-label="Get Hamster Oracle on Google Play (Open Testing, opens Google Play)" data-where="hero"><img src="/img/google-play-badge.png" width="478" height="142" alt="Get it on Google Play"></a>
+        <p class="ho-status">Available in Open Testing on Android.</p>
+      </div>
+    </div>
+    <div class="ho-hero-art">
+      <img class="ho-icon" src="/img/hamster-oracle-icon-400.webp" srcset="/img/hamster-oracle-icon-400.webp 400w, /img/hamster-oracle-icon-720.webp 720w" sizes="(max-width: 860px) 200px, 360px" width="1254" height="1254" alt="Hamster Oracle app icon: an orange cartoon hamster holding a crystal ball with a die inside" fetchpriority="high">
+    </div>
+  </div>
+</section>
 
-<div class="summary">
-<p><strong>Stop flipping through the rulebook mid-game.</strong> Pick your game, ask a rules question in plain words, and get a short answer with the rulebook page it came from, so the table can check it and get back to playing.</p>
+<section class="ho-value ho-cream" aria-labelledby="value-title">
+  <div class="wrap narrow center">
+    <h2 id="value-title">Less Searching. More Playing.</h2>
+    <p>Every board game group knows the frustration.</p>
+    <ol class="ho-steps" aria-label="What usually happens">
+      <li>Someone asks a rules question.</li>
+      <li>The game stops.</li>
+      <li>Everyone starts searching the rulebook, checking forums, or debating what the rules actually mean.</li>
+    </ol>
+    <p class="ho-answer">Hamster Oracle helps you spend less time searching and more time playing.</p>
+  </div>
+</section>
+
+<section class="ho-feature ho-sage phone-left" aria-labelledby="f-answers">
+  <div class="wrap">
+    <div class="ho-phone"><img class="phone" src="/img/phones/rules-answers-380.webp" srcset="/img/phones/rules-answers-380.webp 380w, /img/phones/rules-answers-760.webp 760w" sizes="(max-width: 860px) min(72vw, 300px), 320px" width="760" height="1450" alt="Hamster Oracle answering a Catan question about a die landing on a slant: the rulebook does not cover it, so a labeled Community answer explains the tournament clarification and cites the Tournament Rules from catanevents.com" loading="lazy" decoding="async"></div>
+    <div class="ho-text">
+      <h2 id="f-answers">Get Answers Beyond the Rulebook</h2>
+      <p>Ask board game rules questions in plain English and get clear, useful answers backed by relevant sources.</p>
+      <p>When a question goes beyond the official rulebook, Hamster Oracle can help surface community clarifications while distinguishing them from official rules.</p>
+      <p>See where an answer came from, so your group can get back to playing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ho-feature ho-cream phone-right" aria-labelledby="f-hub">
+  <div class="wrap">
+    <div class="ho-phone"><img class="phone" src="/img/phones/rules-hub-380.webp" srcset="/img/phones/rules-hub-380.webp 380w, /img/phones/rules-hub-760.webp 760w" sizes="(max-width: 860px) min(72vw, 300px), 320px" width="760" height="1503" alt="Hamster Oracle home screen: a Find a game search box, My games with Catan and its 5th edition rulebook, and Table tools for dice roller, timers, first-player picker, counters, score tracker and play log" loading="lazy" decoding="async"></div>
+    <div class="ho-text">
+      <h2 id="f-hub">Your Board Game Rules Hub</h2>
+      <p>Search for board games, save your favorites, and keep your tabletop tools close at hand.</p>
+      <p>From answering rules questions to rolling dice and keeping score, Hamster Oracle brings helpful game-night tools into one convenient place.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ho-feature ho-sage phone-left" aria-labelledby="f-learn">
+  <div class="wrap">
+    <div class="ho-phone"><img class="phone" src="/img/phones/learn-as-you-play-380.webp" srcset="/img/phones/learn-as-you-play-380.webp 380w, /img/phones/learn-as-you-play-760.webp 760w" sizes="(max-width: 860px) min(72vw, 300px), 320px" width="760" height="1470" alt="Hamster Oracle teach mode for Ark Nova: lesson 1 of 5, Your Zoo and Your Action Cards, with rulebook page references and an Ask the table question" loading="lazy" decoding="async"></div>
+    <div class="ho-text">
+      <h2 id="f-learn">Learn as You Play</h2>
+      <p>Learning a new board game doesn't have to mean spending the evening buried in a rulebook.</p>
+      <p>Hamster Oracle breaks complex games into guided lessons with useful explanations and quick check-ins, helping players learn the important concepts as they go.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ho-feature ho-cream phone-right" aria-labelledby="f-setup">
+  <div class="wrap">
+    <div class="ho-phone"><img class="phone" src="/img/phones/setup-checklist-380.webp" srcset="/img/phones/setup-checklist-380.webp 380w, /img/phones/setup-checklist-760.webp 760w" sizes="(max-width: 860px) min(72vw, 300px), 320px" width="760" height="1580" alt="Hamster Oracle setup checklist for War of the Ring: Second Edition with 3 players selected, 0 of 17 steps done, each step citing its rulebook page" loading="lazy" decoding="async"></div>
+    <div class="ho-text">
+      <h2 id="f-setup">Set Up Faster</h2>
+      <p>Get from the box to the first turn with fewer headaches.</p>
+      <p>Follow step-by-step setup checklists tailored to the number of players, so your group can prepare the game without missing an important step.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ho-feature ho-sage phone-left" aria-labelledby="f-turns">
+  <div class="wrap">
+    <div class="ho-phone"><img class="phone" src="/img/phones/turn-tracker-380.webp" srcset="/img/phones/turn-tracker-380.webp 380w, /img/phones/turn-tracker-760.webp 760w" sizes="(max-width: 860px) min(72vw, 300px), 320px" width="760" height="1505" alt="Hamster Oracle turn tracker for Risk: Round 1, Player 1's turn, on the Attack phase with its rules and page numbers, and Back and Next phase buttons" loading="lazy" decoding="async"></div>
+    <div class="ho-text">
+      <h2 id="f-turns">Keep Every Turn on Track</h2>
+      <p>Complex games have enough rules to remember.</p>
+      <p>Hamster Oracle's turn tracker helps your group follow the phases of a turn, understand what happens next, and stay organized throughout the game.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ho-feature ho-cream phone-right" aria-labelledby="f-house">
+  <div class="wrap">
+    <div class="ho-phone"><img class="phone" src="/img/phones/house-rules-380.webp" srcset="/img/phones/house-rules-380.webp 380w, /img/phones/house-rules-760.webp 760w" sizes="(max-width: 860px) min(72vw, 300px), 320px" width="760" height="1464" alt="Hamster Oracle house rules for UNO: the saved rule "Draw until you get a card you can place" and a box to add another" loading="lazy" decoding="async"></div>
+    <div class="ho-text">
+      <h2 id="f-house">Your House Rules, Your Way</h2>
+      <p>Every gaming group plays a little differently.</p>
+      <p>Save custom house rules for the games you play, so Hamster Oracle can take your group's preferences into account while distinguishing them from the official rules.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ho-tools ho-sage" aria-labelledby="tools-title">
+  <div class="wrap">
+    <div class="narrow center">
+      <h2 id="tools-title">Everything Your Game Night Needs</h2>
+      <p>More than a rules assistant. Hamster Oracle includes practical tools to help your group stay focused on the game.</p>
+    </div>
+    <ul class="ho-tool-grid">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/></svg><h3>Dice Roller</h3></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7"/><path d="M12 13.5V9.5M10 2.5h4M18.5 6.5l1.5-1.5"/></svg><h3>Timers</h3></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1a6 6 0 0 1-5.2-3l-2-3.5a1.5 1.5 0 0 1 2.5-1.6L9 14"/></svg><h3>First-Player Picker</h3></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg><h3>Counters</h3></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 5H7l6 7-6 7h10"/></svg><h3>Score Tracker</h3></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></svg><h3>Play Log</h3></li>
+    </ul>
+  </div>
+</section>
+
+<section class="ho-download" id="download" aria-labelledby="download-title" tabindex="-1">
+  <div class="wrap narrow center">
+    <img class="ho-download-icon" src="/img/hamster-oracle-icon-400.webp" width="1254" height="1254" alt="" loading="lazy" decoding="async">
+    <h2 id="download-title">Less Time Reading. More Time Playing.</h2>
+    <p>From setup to the final turn, Hamster Oracle helps make board game night easier.</p>
+    <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.tdaah.rulebookai" aria-label="Get Hamster Oracle on Google Play (Open Testing, opens Google Play)" data-where="download"><img src="/img/google-play-badge.png" width="478" height="142" alt="Get it on Google Play"></a>
+    <p class="ho-status">Available in Open Testing on Android. Try Hamster Oracle and help us make it better.</p>
+  </div>
+</section>
 </div>
 
-<h2>What it does</h2>
-<ul>
-  <li><strong>Cited answers:</strong> every answer points to the rulebook page and quotes it. If the rulebook doesn't cover something, the app says so instead of guessing.</li>
-  <li><strong>Photo questions:</strong> take a picture of a card or the board and ask about it.</li>
-  <li><strong>Game aids:</strong> setup checklists, quick references and scoring sheets built from the rulebook.</li>
-  <li><strong>Table tools:</strong> dice roller, timers, first-player picker, counters and a score tracker.</li>
-  <li><strong>Play log:</strong> keep track of what you played and the scores.</li>
-</ul>
-
-<h2>Get the app</h2>
-<p>Hamster Oracle is in beta testing and coming soon to Google Play and the App Store. To join the beta, email <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a>.</p>
-
-<h2>Contact</h2>
-<p>Questions, feedback or support: <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a></p>
-
-<footer>Two Dudes and a Hamster LLC · <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a> · <a href="/">Two Dudes and a Hamster</a> · <a href="/hamsteroracle/">Hamster Oracle</a> · <a href="/hamsteroracle/privacy/">Privacy policy</a> · <a href="/hamsteroracle/terms/">Terms of use</a></footer>
-</main></body>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span data-year>2026</span> Two Dudes and a Hamster LLC</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="/">tdaah.com</a></li>
+        <li><a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a></li>
+        <li><a href="/hamsteroracle/privacy/">Hamster Oracle Privacy Policy</a></li>
+        <li><a href="/hamsteroracle/terms/">Hamster Oracle Terms of Use</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
 </html>
