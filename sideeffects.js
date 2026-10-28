@@ -350,6 +350,15 @@
     sideEffectPrompt(`${effect.name} is back in your hand.`);
   }
 
+  // Where a computer player puts its three Side Effects. Like real players, most stack two on one
+  // treatment and one on another; some spread one on each. Which treatments, and the order the
+  // cards go down in, are random.
+  function botTargets() {
+    const [a, b, c] = shuffle(state.spots);
+    const targets = Math.random() < 0.65 ? [a, a, b] : [a, b, c];
+    return shuffle(targets);
+  }
+
   async function lockSideEffects() {
     const id = state.round;
     state.locked = true;
@@ -366,10 +375,11 @@
     for (const [b, bot] of BOTS.entries()) {
       say(`${NAMES[bot]} adds their Side Effects…`);
       const cards = state.botEffects.slice(b * TO_PLACE, (b + 1) * TO_PLACE);
-      for (const name of cards) {
+      const targets = botTargets();
+      for (const [k, name] of cards.entries()) {
         await wait(450);
         if (id !== round) return;
-        addSideEffect(pick(state.spots.filter((s) => ownCount(s, bot) < MAX_PER_TREATMENT)), name, bot);
+        addSideEffect(targets[k], name, bot);
       }
       await wait(250);
     }
