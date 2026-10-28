@@ -178,10 +178,6 @@
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { margin: 0; padding: 0 20px 18px; }
 .faq a { color: var(--teal); font-weight: 700; }
-.se-privacy { margin-top: 40px; padding: 20px 24px; background: var(--light); border-radius: 16px; font-size: 0.95rem; }
-.se-privacy:focus { outline: none; }
-.se-privacy h2 { font-size: 1.25rem; margin-bottom: 8px; }
-.se-privacy a { color: var(--teal-dark); }
 
 @media (max-width: 960px) {
   .ht { display: flex; flex-direction: column; }

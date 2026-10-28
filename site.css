@@ -1,4 +1,4 @@
-/* Two Dudes and a Hamster company pages (/, /sideeffects). The Hamster Oracle pages keep their own styles from legal.ts. */
+/* Two Dudes and a Hamster company pages (/, /sideeffects, the company policies). The Hamster Oracle pages keep their own styles from legal.ts. */
 @font-face {
   font-family: 'Fredoka';
   font-style: normal;
@@ -144,6 +144,16 @@ p { margin: 0 0 1em; }
 .site-footer a { color: #f4f1e8; text-underline-offset: 3px; }
 .site-footer a:hover { color: var(--sun); }
 .site-footer p { margin: 0; }
+
+/* Privacy Policy and Terms of Use (company-policies.ts) */
+.legal { background: var(--cream); }
+.legal h1 { font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem); color: var(--charcoal); margin-bottom: 0.2em; }
+.legal .meta { color: var(--muted); margin-top: 0; }
+.legal h2 { font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.6rem); color: var(--charcoal); margin-top: 1.8em; }
+.legal li { margin-bottom: 0.5em; }
+.legal a { color: var(--se-accent-dark); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.legal .summary { background: var(--white); border-left: 6px solid var(--sun); border-radius: 14px; padding: 16px 20px; margin: 24px 0; box-shadow: var(--shadow); }
+.legal .summary p { margin: 0; }
 
 /* Email signup form (the Side Effects page; its layout is in sideeffects.css) */
 .signup-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(20px, 3vw, 32px); margin-top: 24px; }
