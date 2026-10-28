@@ -52,7 +52,9 @@
   let round = 0;
   let state;
 
-  const slug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  // Same as cardSlug in side-effects-deck.ts: accents and apostrophes dropped, words joined by hyphens.
+  const slug = (name) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const shuffle = (list) => {
     const a = list.slice();
     for (let i = a.length - 1; i > 0; i--) {
