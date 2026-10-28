@@ -4,27 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Side Effects Are WHAT?! | Two Dudes and a Hamster</title>
-<meta name="description" content="Side Effects Are WHAT?! is a party card game for 3–8 players from Two Dudes and a Hamster. Join the email list to hear when the Kickstarter goes live.">
+<meta name="description" content="Discover Side Effects Are WHAT?!, a hilarious party card game where ridiculous treatments meet unexpected side effects. Join our list for Kickstarter updates.">
 <link rel="canonical" href="https://tdaah.com/sideeffects/">
 <meta name="theme-color" content="#FCF9EF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Two Dudes and a Hamster">
 <meta property="og:title" content="Side Effects Are WHAT?! | Two Dudes and a Hamster">
-<meta property="og:description" content="Side Effects Are WHAT?! is a party card game for 3–8 players from Two Dudes and a Hamster. Join the email list to hear when the Kickstarter goes live.">
+<meta property="og:description" content="Discover Side Effects Are WHAT?!, a hilarious party card game where ridiculous treatments meet unexpected side effects. Join our list for Kickstarter updates.">
 <meta property="og:url" content="https://tdaah.com/sideeffects/">
-<meta property="og:image" content="https://tdaah.com/img/og-tdaah.png">
+<meta property="og:image" content="https://tdaah.com/img/og-sideeffects.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Two Dudes and a Hamster LLC logo">
+<meta property="og:image:alt" content="The Side Effects Are WHAT?! box art beside three cards: Teen Angst, Going to Bed and Dissociation">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico?v=tdaah" sizes="48x48">
 <link rel="icon" type="image/png" href="/favicon.png?v=tdaah" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=tdaah">
 <link rel="preload" href="/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=1">
+<link rel="stylesheet" href="/site.css?v=2">
+<link rel="preload" as="image" type="image/webp" href="/img/side-effects-box-480.webp" imagesrcset="/img/side-effects-box-480.webp 480w, /img/side-effects-box-880.webp 880w" imagesizes="(max-width: 860px) 300px, 440px">
+<link rel="stylesheet" href="/sideeffects.css?v=1">
+<script src="/sideeffects.js?v=1" defer></script>
 
-
-<script src="/site.js?v=1" defer></script>
+<script src="/site.js?v=2" defer></script>
 <meta name="google-site-verification" content="z_hZndp0DMn18hiRVPLTV0Z0UfmhCc6XPLeAyqX2SA0" />
 </head>
 <body>
@@ -48,44 +50,238 @@
 </header>
 <main id="main">
 
-<div class="se-page">
-<section class="se-hero" aria-labelledby="se-page-title">
+<div class="se">
+<section class="se-hero" aria-labelledby="se-title">
   <div class="wrap">
-    <div class="product-art">
-      <img src="/img/side-effects-box-480.webp" srcset="/img/side-effects-box-480.webp 480w, /img/side-effects-box-880.webp 880w" sizes="(max-width: 860px) 360px, 420px" width="992" height="1317" alt="Side Effects Are WHAT?! box art: a nervous doctor in a head mirror holds up a clipboard with the game title. Box corner reads Players 3-8, Ages 14+, Play time 15 minutes." fetchpriority="high">
+    <div class="se-hero-text">
+      <p class="se-kicker">A party card game from Two Dudes and a Hamster LLC</p>
+      <h1 id="se-title">Side Effects Are WHAT?!</h1>
+      <p class="se-tagline">The Cure Might Be Worse Than the Condition.</p>
     </div>
-    <div>
-      <h1 id="se-page-title">Side Effects Are WHAT?!</h1>
-      <p class="tagline" style="color: var(--se-accent-dark)">The party game for the medically unqualified.</p>
-      <p>A ridiculous party game built for big laughs, unexpected answers, and unforgettable game nights.</p>
-      <ul class="facts" aria-label="Game details">
-        <li>3–8 players</li>
-        <li>Ages 14+</li>
-        <li>Approximately 15 minutes</li>
+    <div class="se-hero-art">
+      <img class="box" src="/img/side-effects-box-480.webp" srcset="/img/side-effects-box-480.webp 480w, /img/side-effects-box-880.webp 880w" sizes="(max-width: 860px) 300px, 440px" width="992" height="1317" alt="Side Effects Are WHAT?! box art: a nervous doctor in a head mirror holds up a clipboard with the game title. Box corner reads Players 3-8, Ages 14+, Play time 15 minutes." fetchpriority="high">
+    </div>
+    <div class="se-hero-more">
+      <p class="se-lede">A ridiculous party game where questionable treatments meet even more questionable side effects. Choose your cure, accept the consequences, and find out what your friends are willing to risk.</p>
+      <ul class="se-facts" aria-label="Game details">
+        <li><strong>3–8</strong> Players</li>
+        <li><strong>14+</strong> Ages</li>
+        <li><strong>15</strong> Minutes</li>
       </ul>
+      <a class="btn se-btn" href="#signup" data-scroll-to-signup>Get Kickstarter Updates</a>
+      <p class="se-status">Preparing for Kickstarter</p>
+    </div>
+  </div>
+</section>
 
-      <div class="signup-card">
-        <h2 id="signup-title">Don't Miss Out!</h2>
-        <p>Want to know the moment our Kickstarter goes live? Sign up and we'll email you when it launches, plus updates on the campaign.</p>
-        <form id="signup-form" action="https://api-production-c3d81.up.railway.app/signups" method="post" data-source="sideeffects" data-contact="nathan@tdaah.com" aria-labelledby="signup-title" novalidate>
-          <div class="field">
-            <label for="signup-email">Email address</label>
-            <input id="signup-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="signup-status">
-          </div>
-          <div class="field">
-            <label for="signup-name">First name <span class="opt">(optional)</span></label>
-            <input id="signup-name" name="firstName" type="text" autocomplete="given-name" maxlength="80">
-          </div>
-          <div class="hp" aria-hidden="true">
-            <label for="signup-website">Leave this field empty</label>
-            <input id="signup-website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <button class="btn btn-se" type="submit">Keep Me Updated</button>
-          <p class="privacy-note">We'll use your email only to tell you when the Side Effects Are WHAT?! Kickstarter goes live and to send updates about it. Your first name, if you give it, is just so we can say hello. To be taken off the list at any time, email <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a>.</p>
-          <noscript><p class="form-status error">The signup form needs JavaScript. You can also email <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a> to join the list.</p></noscript>
-        </form>
-        <p id="signup-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+<section class="se-section se-about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="se-about-text">
+      <h2 id="about-title">Prescribe a Cure. Make It Worse.</h2>
+      <p>Every round begins with a condition that needs treating.</p>
+      <p>Players suggest their treatments, then everyone gets a chance to make those treatments considerably less appealing.</p>
+      <p>Would you take a treatment if it caused hallucinations? What about accelerated balding? Or the unexpected horror of being actually content with life?</p>
+      <p>Once the side effects are revealed, everyone votes for the treatment they'd choose.</p>
+      <p class="se-punch">The results are rarely what you'd expect.</p>
+    </div>
+    <div class="se-about-art" role="group" aria-label="One card of each kind">
+      <img class="ab ab-condition" src="/img/cards/condition-influencer.webp" width="600" height="818" alt="Condition card: Influencer" loading="lazy" decoding="async">
+      <img class="ab ab-treatment" src="/img/cards/treatment-lobotomy.webp" width="600" height="818" alt="Treatment card: Lobotomy" loading="lazy" decoding="async">
+      <img class="ab ab-effect" src="/img/cards/side-effect-coughing.webp" width="440" height="605" alt="Side Effect card: Coughing" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="se-section se-howto" id="how-to-play" aria-labelledby="howto-title">
+  <div class="wrap">
+    <header class="se-heading center">
+      <h2 id="howto-title">How to Play</h2>
+      <p>Five simple steps. One very questionable cure.</p>
+    </header>
+
+    <div class="ht" id="ht" data-step="5">
+      <ol class="ht-progress" aria-label="Steps">
+        <li><button type="button" data-goto="1"><span class="num">1</span><span class="lbl">Reveal</span><span class="visually-hidden">: Reveal the Condition</span></button></li>
+        <li><button type="button" data-goto="2"><span class="num">2</span><span class="lbl">Prescribe</span><span class="visually-hidden">: Prescribe a Treatment</span></button></li>
+        <li><button type="button" data-goto="3"><span class="num">3</span><span class="lbl">Side Effects</span><span class="visually-hidden">: Add the Side Effects</span></button></li>
+        <li><button type="button" data-goto="4"><span class="num">4</span><span class="lbl">Vote</span><span class="visually-hidden">: Vote for the Cure</span></button></li>
+        <li><button type="button" data-goto="5"><span class="num">5</span><span class="lbl">Score</span><span class="visually-hidden">: Score Your Points</span></button></li>
+      </ol>
+
+      <div class="ht-text" aria-live="polite">
+        <div class="ht-panel" data-panel="1">
+          <p class="ht-kicker">Step 1 of 5</p>
+          <h3>Reveal the Condition</h3>
+          <p>The Orator flips over a Condition card. This is the problem everyone needs to solve.</p>
+        </div>
+        <div class="ht-panel" data-panel="2">
+          <p class="ht-kicker">Step 2 of 5</p>
+          <h3>Prescribe a Treatment</h3>
+          <p>Every player, including the Orator, secretly submits one Treatment card. The Orator reveals them all, keeping their owners anonymous.</p>
+      <p class="ht-note">This example is a three-player round, so three treatments are on the table.</p>
+        </div>
+        <div class="ht-panel" data-panel="3">
+          <p class="ht-kicker">Step 3 of 5</p>
+          <h3>Add the Side Effects</h3>
+          <p>Each player chooses three Side Effect cards from their hand and attaches them to the treatments.</p>
+      <p>There's one catch: you can't place more than two of your own Side Effect cards on the same treatment.</p>
+      <p>A treatment can accumulate more than two total side effects when multiple players contribute.</p>
+      <p class="ht-note">Shown here: five of the nine Side Effects. With three players each playing exactly three, nine land on the table in a real round.</p>
+        </div>
+        <div class="ht-panel" data-panel="4">
+          <p class="ht-kicker">Step 4 of 5</p>
+          <h3>Vote for the Cure</h3>
+          <p>Everyone, including the Orator, votes for the treatment they'd actually choose after considering its side effects.</p>
+      <p>The treatment with the most votes wins!</p>
+      <ul class="ht-legend" aria-label="Voting tokens">
+        <li><span class="token token-p1" style="--d:0" aria-hidden="true"></span>Player 1 (Orator)</li>
+        <li><span class="token token-p2" style="--d:0" aria-hidden="true"></span>Player 2</li>
+        <li><span class="token token-p3" style="--d:0" aria-hidden="true"></span>Player 3</li>
+      </ul>
+      <p class="ht-note">Going to Bed gets two votes, A Haircut gets one, and Touching Grass gets none.</p>
+        </div>
+        <div class="ht-panel" data-panel="5">
+          <p class="ht-kicker">Step 5 of 5</p>
+          <h3>Score Your Points</h3>
+          <p>Submitted the winning treatment? Earn 3 points!</p>
+      <p>Added Side Effects to the winning treatment? Earn 1 point for each of your Side Effects attached to it.</p>
+      <ul class="ht-scores" aria-label="Points this round">
+        <li><span class="token token-p2" style="--d:0" aria-hidden="true"></span><span><strong>Player 2</strong> submitted Going to Bed</span><b>+3</b></li>
+        <li><span class="token token-p3" style="--d:0" aria-hidden="true"></span><span><strong>Player 3</strong> added Dissociation to it</span><b>+1</b></li>
+        <li><span class="token token-p1" style="--d:0" aria-hidden="true"></span><span><strong>Player 1 (Orator)</strong> had no cards on Going to Bed</span><b>+0</b></li>
+      </ul>
+      <p class="ht-note">The two kinds of points go to whoever owns each card, so one player can earn both.</p>
+        </div>
       </div>
+
+      <div class="ht-stage has-1 has-2 has-3 has-4 has-5 did-1 did-2 did-3 did-4 did-5" id="ht-stage">
+        <div class="ht-condition"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/condition-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/condition-teen-angst.webp" width="600" height="818" alt="Condition card: Teen Angst" loading="lazy" decoding="async"></div></div></div>
+        <ol class="ht-spots" aria-label="Submitted treatments">
+      <li class="ht-spot" style="--i:0;--n:2">
+        <div class="ht-cards">
+          <div class="ht-treat"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/treatment-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/treatment-touching-grass.webp" width="600" height="818" alt="Treatment card: Touching Grass" loading="lazy" decoding="async"></div></div></div>
+          <div class="ht-effects"><div class="ht-se" style="--i:0;--d:0;--r:-3deg"><img src="/img/cards/side-effect-hallucinations.webp" width="440" height="605" alt="Side Effect card: Hallucinations" loading="lazy" decoding="async"></div><div class="ht-se" style="--i:1;--d:1;--r:2deg"><img src="/img/cards/side-effect-actually-content-with-life.webp" width="440" height="605" alt="Side Effect card: Actually Content With Life" loading="lazy" decoding="async"></div></div>
+        </div>
+        <div class="ht-votes"><span class="tokens"></span><span class="vote-count">0 votes</span></div>
+      </li>
+      <li class="ht-spot" style="--i:1;--n:2">
+        <div class="ht-cards">
+          <div class="ht-treat"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/treatment-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/treatment-a-haircut.webp" width="600" height="818" alt="Treatment card: A Haircut" loading="lazy" decoding="async"></div></div></div>
+          <div class="ht-effects"><div class="ht-se" style="--i:0;--d:2;--r:-3deg"><img src="/img/cards/side-effect-accelerated-balding.webp" width="440" height="605" alt="Side Effect card: Accelerated Balding" loading="lazy" decoding="async"></div><div class="ht-se" style="--i:1;--d:3;--r:2deg"><img src="/img/cards/side-effect-breaking-the-fourth-wall.webp" width="440" height="605" alt="Side Effect card: Breaking the Fourth Wall" loading="lazy" decoding="async"></div></div>
+        </div>
+        <div class="ht-votes"><span class="tokens"><span class="token token-p2" style="--d:0" aria-hidden="true"></span></span><span class="vote-count">1 vote</span></div>
+      </li>
+      <li class="ht-spot win" style="--i:2;--n:1">
+        <div class="ht-cards">
+          <div class="ht-treat"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/treatment-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/treatment-going-to-bed.webp" width="600" height="818" alt="Treatment card: Going to Bed" loading="lazy" decoding="async"></div></div><span class="points points-p2" aria-hidden="true">+3</span></div>
+          <div class="ht-effects"><div class="ht-se" style="--i:0;--d:4;--r:-3deg"><img src="/img/cards/side-effect-dissociation.webp" width="440" height="605" alt="Side Effect card: Dissociation" loading="lazy" decoding="async"><span class="points points-p3" aria-hidden="true">+1</span></div></div>
+        </div>
+        <div class="ht-votes"><span class="tokens"><span class="token token-p1" style="--d:1" aria-hidden="true"></span><span class="token token-p3" style="--d:2" aria-hidden="true"></span></span><span class="vote-count">2 votes</span><span class="winner-tag">Winner!</span></div>
+      </li>
+        </ol>
+      </div>
+
+      <div class="ht-controls">
+        <button type="button" class="ht-btn ht-prev" data-prev><span aria-hidden="true">&larr;</span> Previous</button>
+        <p class="ht-count" aria-hidden="true"><span data-count>5</span> / 5</p>
+        <button type="button" class="ht-btn ht-next" data-next>Next Step <span aria-hidden="true">&rarr;</span></button>
+        <button type="button" class="ht-btn ht-replay" data-replay hidden><span aria-hidden="true">&#8634;</span> Replay the Round</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="se-band" aria-labelledby="band-title">
+  <div class="wrap">
+    <h2 id="band-title">Want to Play It for Real?</h2>
+    <p>Side Effects Are WHAT?! is preparing for Kickstarter. Join the list and we'll let you know when it launches.</p>
+    <a class="btn se-btn" href="#signup" data-scroll-to-signup>Get Kickstarter Updates</a>
+  </div>
+</section>
+
+<section class="se-section se-showcase" aria-labelledby="showcase-title">
+  <div class="wrap">
+    <header class="se-heading center">
+      <h2 id="showcase-title">The Possibilities Are Ridiculous.</h2>
+      <p>Three types of cards. Countless questionable combinations.</p>
+    </header>
+    <div class="sc-groups">
+      <div class="sc-group sc-condition">
+        <h3>Conditions</h3>
+        <p>The problems that need solving.</p>
+        <ul class="sc-stack" aria-label="Conditions">
+          <li style="--i:0" tabindex="0"><img src="/img/cards/condition-introvert.webp" width="600" height="818" alt="Condition card: Introvert" loading="lazy" decoding="async"></li>
+          <li style="--i:1" tabindex="0"><img src="/img/cards/condition-couch-potato.webp" width="600" height="818" alt="Condition card: Couch Potato" loading="lazy" decoding="async"></li>
+          <li style="--i:2" tabindex="0"><img src="/img/cards/condition-bad-knees.webp" width="600" height="818" alt="Condition card: Bad Knees" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+      <div class="sc-group sc-treatment">
+        <h3>Treatments</h3>
+        <p>Your questionable solutions.</p>
+        <ul class="sc-stack" aria-label="Treatments">
+          <li style="--i:0" tabindex="0"><img src="/img/cards/treatment-bee-stings.webp" width="600" height="818" alt="Treatment card: Bee Stings" loading="lazy" decoding="async"></li>
+          <li style="--i:1" tabindex="0"><img src="/img/cards/treatment-chuck-norris-jokes.webp" width="600" height="818" alt="Treatment card: Chuck Norris Jokes" loading="lazy" decoding="async"></li>
+          <li style="--i:2" tabindex="0"><img src="/img/cards/treatment-electroshock-therapy.webp" width="600" height="818" alt="Treatment card: Electroshock Therapy" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+      <div class="sc-group sc-side-effect">
+        <h3>Side Effects</h3>
+        <p>The unexpected consequences.</p>
+        <ul class="sc-stack" aria-label="Side Effects">
+          <li style="--i:0" tabindex="0"><img src="/img/cards/side-effect-bad-driver.webp" width="440" height="605" alt="Side Effect card: Bad Driver" loading="lazy" decoding="async"></li>
+          <li style="--i:1" tabindex="0"><img src="/img/cards/side-effect-broken-dreams.webp" width="440" height="605" alt="Side Effect card: Broken Dreams" loading="lazy" decoding="async"></li>
+          <li style="--i:2" tabindex="0"><img src="/img/cards/side-effect-healthy-lifestyle-changes.webp" width="440" height="605" alt="Side Effect card: Healthy Lifestyle Changes" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+    </div>
+    <p class="sc-hint" aria-hidden="true">Swipe to see more cards &rarr;</p>
+  </div>
+</section>
+
+<section class="se-signup" id="signup" aria-labelledby="signup-title" tabindex="-1">
+  <div class="wrap">
+    <div class="se-signup-text">
+      <h2 id="signup-title">Ready for Some Side Effects?</h2>
+      <p>Join our email list for Kickstarter launch news, game updates, and opportunities to help bring Side Effects Are WHAT?! to life.</p>
+    </div>
+    <div class="signup-card">
+      <form id="signup-form" action="https://api-production-c3d81.up.railway.app/signups" method="post" data-source="sideeffects" data-contact="nathan@tdaah.com" data-success-title="You're on the list!" data-success-text="Thanks for joining us. We'll keep you updated on Side Effects Are WHAT?!" aria-labelledby="signup-title" novalidate>
+        <div class="field">
+          <label for="signup-email">Email address</label>
+          <input id="signup-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="signup-status">
+        </div>
+        <div class="field">
+          <label for="signup-name">First name <span class="opt">(optional)</span></label>
+          <input id="signup-name" name="firstName" type="text" autocomplete="given-name" maxlength="80">
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="signup-website">Leave this field empty</label>
+          <input id="signup-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn se-btn" type="submit">Keep Me Updated</button>
+        <p class="privacy-note">Email updates from Two Dudes and a Hamster LLC. Unsubscribe anytime. <a href="#email-privacy">How we use your email</a>.</p>
+        <noscript><p class="form-status error">The signup form needs JavaScript. You can also email <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a> to join the list.</p></noscript>
+      </form>
+      <div id="signup-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+    </div>
+  </div>
+</section>
+
+<section class="se-section se-faq" aria-labelledby="faq-title">
+  <div class="wrap narrow">
+    <h2 id="faq-title" class="center">Questions?</h2>
+    <div class="faq">
+      <details><summary>How many people can play?</summary><p>Side Effects Are WHAT?! supports 3–8 players.</p></details>
+      <details><summary>How long does the game take?</summary><p>Approximately 15 minutes.</p></details>
+      <details><summary>What age is it for?</summary><p>Ages 14 and older.</p></details>
+      <details><summary>Is the game available to buy?</summary><p>Not yet. We're preparing for Kickstarter. <a href="#signup" data-scroll-to-signup>Join our email list</a> to receive updates.</p></details>
+      <details><summary>Who created Side Effects Are WHAT?!</summary><p>Two Dudes and a Hamster LLC, an independent game company based in Utah.</p></details>
+    </div>
+
+    <div class="se-privacy" id="email-privacy" tabindex="-1">
+      <h2>Email List Privacy</h2>
+      <p>When you join the Side Effects Are WHAT?! email list, Two Dudes and a Hamster LLC saves your email address, your first name if you give it, which page you signed up on, and when. We use them only to email you Kickstarter launch news and updates about Side Effects Are WHAT?!. We don't sell your details or share them with other companies for their own use.</p>
+      <p>To unsubscribe or have your details deleted, email <a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a> and we'll take you off the list.</p>
     </div>
   </div>
 </section>
@@ -97,12 +293,10 @@
     <p>&copy; <span data-year>2026</span> Two Dudes and a Hamster LLC</p>
     <nav aria-label="Footer">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/sideeffects/">Side Effects Are WHAT?!</a></li>
+        <li><a href="/">tdaah.com</a></li>
         <li><a href="/hamsteroracle/">Hamster Oracle</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Use</a></li>
+        <li><a href="mailto:nathan@tdaah.com">nathan@tdaah.com</a></li>
+        <li><a href="#email-privacy">Email List Privacy</a></li>
       </ul>
     </nav>
   </div>

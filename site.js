@@ -64,7 +64,13 @@ document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = Stri
       if (res.ok) {
         form.reset();
         form.querySelectorAll('.field, button[type="submit"], .privacy-note').forEach((el) => { el.hidden = true; });
-        show('success', "You're on the list! Thanks for joining us. We'll keep you updated.");
+        // The form's data-success-title and data-success-text are the page's own wording.
+        status.className = 'form-status success';
+        status.replaceChildren();
+        const title = document.createElement('strong');
+        title.className = 'success-title';
+        title.textContent = form.dataset.successTitle || "You're on the list!";
+        status.append(title, ' ', form.dataset.successText || "Thanks for joining us. We'll keep you updated.");
         status.focus();
         return;
       }
