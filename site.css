@@ -104,6 +104,9 @@ p { margin: 0 0 1em; }
 .product.reverse .product-art { order: 2; }
 .product-art { display: flex; justify-content: center; }
 .product-art img { border-radius: var(--radius); box-shadow: var(--shadow); }
+/* The product image links to the product's page too; the button below it is the keyboard route. */
+.product-link { display: flex; justify-content: center; width: 100%; transition: transform 0.2s; }
+.product-link:hover { transform: translateY(-4px); }
 .product h3 { font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem); margin-bottom: 0.2em; }
 .tagline { font-family: var(--heading); font-weight: 600; font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem); margin-bottom: 1em; }
 .side-effects { background: var(--se-bg); }

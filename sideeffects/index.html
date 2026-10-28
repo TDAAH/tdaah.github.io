@@ -21,10 +21,10 @@
 <link rel="icon" type="image/png" href="/favicon.png?v=tdaah" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=tdaah">
 <link rel="preload" href="/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=3">
+<link rel="stylesheet" href="/site.css?v=4">
 <link rel="preload" as="image" type="image/webp" href="/img/side-effects-box-480.webp" imagesrcset="/img/side-effects-box-480.webp 480w, /img/side-effects-box-880.webp 880w" imagesizes="(max-width: 860px) 300px, 440px">
-<link rel="stylesheet" href="/sideeffects.css?v=2">
-<script src="/sideeffects.js?v=1" defer></script>
+<link rel="stylesheet" href="/sideeffects.css?v=3">
+<script src="/sideeffects.js?v=2" defer></script>
 
 <script src="/site.js?v=2" defer></script>
 <meta name="google-site-verification" content="z_hZndp0DMn18hiRVPLTV0Z0UfmhCc6XPLeAyqX2SA0" />
@@ -96,19 +96,37 @@
   <div class="wrap">
     <header class="se-heading center">
       <h2 id="howto-title">How to Play</h2>
-      <p>Five simple steps. One very questionable cure.</p>
+      <p>Five simple steps. One very questionable cure. Try a round against two computer players.</p>
     </header>
 
-    <div class="ht" id="ht" data-step="5">
+    <div class="ht" id="ht">
       <ol class="ht-progress" aria-label="Steps">
-        <li><button type="button" data-goto="1"><span class="num">1</span><span class="lbl">Reveal</span><span class="visually-hidden">: Reveal the Condition</span></button></li>
-        <li><button type="button" data-goto="2"><span class="num">2</span><span class="lbl">Prescribe</span><span class="visually-hidden">: Prescribe a Treatment</span></button></li>
-        <li><button type="button" data-goto="3"><span class="num">3</span><span class="lbl">Side Effects</span><span class="visually-hidden">: Add the Side Effects</span></button></li>
-        <li><button type="button" data-goto="4"><span class="num">4</span><span class="lbl">Vote</span><span class="visually-hidden">: Vote for the Cure</span></button></li>
-        <li><button type="button" data-goto="5"><span class="num">5</span><span class="lbl">Score</span><span class="visually-hidden">: Score Your Points</span></button></li>
+        <li data-goto="1"><span class="num">1</span><span class="lbl">Reveal</span></li>
+        <li data-goto="2"><span class="num">2</span><span class="lbl">Prescribe</span></li>
+        <li data-goto="3"><span class="num">3</span><span class="lbl">Side Effects</span></li>
+        <li data-goto="4"><span class="num">4</span><span class="lbl">Vote</span></li>
+        <li data-goto="5"><span class="num">5</span><span class="lbl">Score</span></li>
       </ol>
 
-      <div class="ht-text" aria-live="polite">
+      <div class="ht-play">
+        <div class="ht-stage" id="ht-stage">
+          <ul class="ht-players" aria-label="Scores">
+            <li><span class="token token-p1" aria-hidden="true"></span>You<b data-score="p1">0</b></li>
+            <li><span class="token token-p2" aria-hidden="true"></span>Player 2<b data-score="p2">0</b></li>
+            <li><span class="token token-p3" aria-hidden="true"></span>Player 3<b data-score="p3">0</b></li>
+          </ul>
+          <div class="ht-condition"></div>
+          <ol class="ht-spots" aria-label="Treatments on the table"></ol>
+        </div>
+        <div class="ht-tray">
+          <p class="ht-prompt" aria-live="polite"></p>
+          <div class="ht-hand" role="group" aria-label="Your hand"></div>
+          <div class="ht-actions"><button type="button" class="ht-btn ht-next" hidden></button></div>
+        </div>
+        <noscript><p class="ht-note">Turn on JavaScript to play a sample round. The rules for each step are here.</p></noscript>
+      </div>
+
+      <div class="ht-text">
         <div class="ht-panel" data-panel="1">
           <p class="ht-kicker">Step 1 of 5</p>
           <h3>Reveal the Condition</h3>
@@ -117,8 +135,8 @@
         <div class="ht-panel" data-panel="2">
           <p class="ht-kicker">Step 2 of 5</p>
           <h3>Prescribe a Treatment</h3>
-          <p>Every player, including the Orator, secretly submits one Treatment card. The Orator reveals them all, keeping their owners anonymous.</p>
-      <p class="ht-note">This example is a three-player round, so three treatments are on the table.</p>
+          <p>Every player, including the Orator, secretly submits one Treatment card from their hand. The Orator reveals them all, keeping their owners anonymous.</p>
+      <p class="ht-note">This sample round has three players: you and two computer players.</p>
         </div>
         <div class="ht-panel" data-panel="3">
           <p class="ht-kicker">Step 3 of 5</p>
@@ -126,67 +144,23 @@
           <p>Each player chooses three Side Effect cards from their hand and attaches them to the treatments.</p>
       <p>There's one catch: you can't place more than two of your own Side Effect cards on the same treatment.</p>
       <p>A treatment can accumulate more than two total side effects when multiple players contribute.</p>
-      <p class="ht-note">Shown here: five of the nine Side Effects. With three players each playing exactly three, nine land on the table in a real round.</p>
         </div>
         <div class="ht-panel" data-panel="4">
           <p class="ht-kicker">Step 4 of 5</p>
           <h3>Vote for the Cure</h3>
-          <p>Everyone, including the Orator, votes for the treatment they'd actually choose after considering its side effects.</p>
+          <p>Everyone, including the Orator, votes for the treatment they'd actually choose after considering its side effects. You can vote for your own.</p>
       <p>The treatment with the most votes wins!</p>
-      <ul class="ht-legend" aria-label="Voting tokens">
-        <li><span class="token token-p1" style="--d:0" aria-hidden="true"></span>Player 1 (Orator)</li>
-        <li><span class="token token-p2" style="--d:0" aria-hidden="true"></span>Player 2</li>
-        <li><span class="token token-p3" style="--d:0" aria-hidden="true"></span>Player 3</li>
-      </ul>
-      <p class="ht-note">Going to Bed gets two votes, A Haircut gets one, and Touching Grass gets none.</p>
+      <p class="ht-note">In this sample round, a tied vote goes to the tied treatment with the most Side Effects. If two of them tie for the most, the one with the next most wins.</p>
         </div>
         <div class="ht-panel" data-panel="5">
           <p class="ht-kicker">Step 5 of 5</p>
           <h3>Score Your Points</h3>
           <p>Submitted the winning treatment? Earn 3 points!</p>
       <p>Added Side Effects to the winning treatment? Earn 1 point for each of your Side Effects attached to it.</p>
-      <ul class="ht-scores" aria-label="Points this round">
-        <li><span class="token token-p2" style="--d:0" aria-hidden="true"></span><span><strong>Player 2</strong> submitted Going to Bed</span><b>+3</b></li>
-        <li><span class="token token-p3" style="--d:0" aria-hidden="true"></span><span><strong>Player 3</strong> added Dissociation to it</span><b>+1</b></li>
-        <li><span class="token token-p1" style="--d:0" aria-hidden="true"></span><span><strong>Player 1 (Orator)</strong> had no cards on Going to Bed</span><b>+0</b></li>
-      </ul>
       <p class="ht-note">The two kinds of points go to whoever owns each card, so one player can earn both.</p>
         </div>
       </div>
-
-      <div class="ht-stage has-1 has-2 has-3 has-4 has-5 did-1 did-2 did-3 did-4 did-5" id="ht-stage">
-        <div class="ht-condition"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/condition-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/condition-teen-angst.webp" width="600" height="818" alt="Condition card: Teen Angst" loading="lazy" decoding="async"></div></div></div>
-        <ol class="ht-spots" aria-label="Submitted treatments">
-      <li class="ht-spot" style="--i:0;--n:2">
-        <div class="ht-cards">
-          <div class="ht-treat"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/treatment-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/treatment-touching-grass.webp" width="600" height="818" alt="Treatment card: Touching Grass" loading="lazy" decoding="async"></div></div></div>
-          <div class="ht-effects"><div class="ht-se" style="--i:0;--d:0;--r:-3deg"><img src="/img/cards/side-effect-hallucinations.webp" width="440" height="605" alt="Side Effect card: Hallucinations" loading="lazy" decoding="async"></div><div class="ht-se" style="--i:1;--d:1;--r:2deg"><img src="/img/cards/side-effect-actually-content-with-life.webp" width="440" height="605" alt="Side Effect card: Actually Content With Life" loading="lazy" decoding="async"></div></div>
-        </div>
-        <div class="ht-votes"><span class="tokens"></span><span class="vote-count">0 votes</span></div>
-      </li>
-      <li class="ht-spot" style="--i:1;--n:2">
-        <div class="ht-cards">
-          <div class="ht-treat"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/treatment-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/treatment-a-haircut.webp" width="600" height="818" alt="Treatment card: A Haircut" loading="lazy" decoding="async"></div></div></div>
-          <div class="ht-effects"><div class="ht-se" style="--i:0;--d:2;--r:-3deg"><img src="/img/cards/side-effect-accelerated-balding.webp" width="440" height="605" alt="Side Effect card: Accelerated Balding" loading="lazy" decoding="async"></div><div class="ht-se" style="--i:1;--d:3;--r:2deg"><img src="/img/cards/side-effect-breaking-the-fourth-wall.webp" width="440" height="605" alt="Side Effect card: Breaking the Fourth Wall" loading="lazy" decoding="async"></div></div>
-        </div>
-        <div class="ht-votes"><span class="tokens"><span class="token token-p2" style="--d:0" aria-hidden="true"></span></span><span class="vote-count">1 vote</span></div>
-      </li>
-      <li class="ht-spot win" style="--i:2;--n:1">
-        <div class="ht-cards">
-          <div class="ht-treat"><div class="flip"><div class="flip-inner"><img class="face face-back" src="/img/cards/treatment-back.webp" width="600" height="818" alt="" loading="lazy" decoding="async"><img class="face face-front" src="/img/cards/treatment-going-to-bed.webp" width="600" height="818" alt="Treatment card: Going to Bed" loading="lazy" decoding="async"></div></div><span class="points points-p2" aria-hidden="true">+3</span></div>
-          <div class="ht-effects"><div class="ht-se" style="--i:0;--d:4;--r:-3deg"><img src="/img/cards/side-effect-dissociation.webp" width="440" height="605" alt="Side Effect card: Dissociation" loading="lazy" decoding="async"><span class="points points-p3" aria-hidden="true">+1</span></div></div>
-        </div>
-        <div class="ht-votes"><span class="tokens"><span class="token token-p1" style="--d:1" aria-hidden="true"></span><span class="token token-p3" style="--d:2" aria-hidden="true"></span></span><span class="vote-count">2 votes</span><span class="winner-tag">Winner!</span></div>
-      </li>
-        </ol>
-      </div>
-
-      <div class="ht-controls">
-        <button type="button" class="ht-btn ht-prev" data-prev><span aria-hidden="true">&larr;</span> Previous</button>
-        <p class="ht-count" aria-hidden="true"><span data-count>5</span> / 5</p>
-        <button type="button" class="ht-btn ht-next" data-next>Next Step <span aria-hidden="true">&rarr;</span></button>
-        <button type="button" class="ht-btn ht-replay" data-replay hidden><span aria-hidden="true">&#8634;</span> Replay the Round</button>
-      </div>
+      <script type="application/json" id="ht-deck">{"conditions":["Alpha Male","Bad Knees","Couch Potato","Influencer","Introvert","Teen Angst"],"treatments":["A Haircut","Bee Stings","Chuck Norris Jokes","Electroshock Therapy","Going to Bed","Lobotomy","Touching Grass"],"sideEffects":["Accelerated Balding","Actually Content With Life","Bad Driver","Breaking the Fourth Wall","Broken Dreams","Color Blindness","Couch Potato","Coughing","Dissociation","Dizziness","Hallucinations","Healthy Lifestyle Changes","Hot Flashes","No Spatial Awareness","Poor Survival Instincts","Toenail Fungus","Voice Cracks"]}</script>
     </div>
   </div>
 </section>
