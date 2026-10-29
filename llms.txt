@@ -1,0 +1,20 @@
+# Two Dudes and a Hamster LLC
+
+> Two Dudes and a Hamster LLC (tdaah.com) is an independent game company in Utah, United States. It makes the party card game Side Effects Are WHAT?! and the board game rules app Hamster Oracle. Contact: nathan@tdaah.com.
+
+## Games and apps
+
+- [Side Effects Are WHAT?!](https://tdaah.com/sideeffects/): A party card game for 3 to 8 players, ages 14 and up, about 15 minutes per game. Each round the Orator reveals a Condition card, every player (the Orator too) prescribes a Treatment card, players attach Side Effect cards to the treatments, and everyone votes for the treatment they would actually take. The page has a playable sample round. Not for sale yet: it is preparing for Kickstarter, and the page has an email signup for Kickstarter updates.
+- [Hamster Oracle](https://tdaah.com/hamsteroracle/): A board game rules assistant app for Android, in Open Testing on Google Play (https://play.google.com/store/apps/details?id=com.tdaah.rulebookai). Ask rules questions in plain English and get answers backed by the game's rulebook with page references. Community clarifications and saved house rules are kept separate from official rules. Also has guided lessons for learning a game, setup checklists by player count, a turn tracker, and table tools: dice roller, timers, first-player picker, counters, score tracker and play log.
+
+## Company
+
+- [Home](https://tdaah.com/): About Two Dudes and a Hamster LLC: games that make you laugh and think, exploring education, ethics, morality, politics, pop culture and differences between cultures.
+- [Contact](https://tdaah.com/#contact): Email nathan@tdaah.com.
+
+## Policies
+
+- [Privacy Policy](https://tdaah.com/privacy/): For tdaah.com and the company email lists.
+- [Terms of Use](https://tdaah.com/terms/): For tdaah.com and the company email lists.
+- [Hamster Oracle Privacy Policy](https://tdaah.com/hamsteroracle/privacy/)
+- [Hamster Oracle Terms of Use](https://tdaah.com/hamsteroracle/terms/)
