@@ -16,4 +16,4 @@ User-agent: meta-externalagent
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://tdaah.com/sitemap.xml
+Sitemap: https://twodudesandahamster.com/sitemap.xml
