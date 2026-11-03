@@ -1,4 +1,4 @@
-// Two Dudes and a Hamster company pages: the mobile menu and the email signup form.
+// Two Dudes and a Hamster company pages: the mobile menu, the email signup form and the iPhone waitlist popup.
 document.documentElement.classList.replace('no-js', 'js');
 
 // The copyright year in the footer.
@@ -91,4 +91,26 @@ document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = Stri
       button.textContent = label;
     }
   });
+})();
+
+// The iPhone waitlist popup on /hamsteroracle/: the App Store badge opens it (the iPhone app isn't out
+// yet). Without dialog support the badge stays a plain email link.
+(function () {
+  const dialog = document.getElementById('ios-signup');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  let opener = null;
+  document.addEventListener('click', (e) => {
+    const badge = e.target.closest('[data-ios-signup]');
+    if (!badge) return;
+    e.preventDefault();
+    opener = badge;
+    dialog.showModal();
+    const email = dialog.querySelector('input[type="email"]');
+    if (email && !email.closest('[hidden]')) email.focus();
+  });
+  // The close button, or a click on the dimmed page around the card.
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog || e.target.closest('[data-close]')) dialog.close();
+  });
+  dialog.addEventListener('close', () => { if (opener) opener.focus(); });
 })();

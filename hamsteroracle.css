@@ -14,10 +14,6 @@
 .ho-sage { background: var(--sage); }
 .ho-cream { background: var(--cream); }
 
-/* Google's badge, shown as supplied */
-.play-badge { display: inline-block; border-radius: 10px; transition: transform 0.15s; }
-.play-badge img { width: 200px; height: auto; }
-.play-badge:hover { transform: translateY(-2px); }
 .ho-status { margin: 10px 0 0; font-weight: 700; font-size: 0.98rem; color: var(--green); display: flex; align-items: center; gap: 8px; }
 .ho-status::before { content: ''; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(233, 185, 83, 0.3); }
 
@@ -78,8 +74,6 @@
 .ho-download h2 { color: var(--white); }
 .ho-download p { font-size: 1.15rem; }
 .ho-download-icon { width: 96px; height: 96px; border-radius: 22%; margin: 0 auto 20px; box-shadow: 0 0 0 4px rgba(233, 185, 83, 0.6); }
-.ho-download .play-badge { margin-top: 8px; }
-.ho-download .play-badge img { width: 220px; }
 .ho-download .ho-status { justify-content: center; color: #e4efe8; }
 
 @media (max-width: 860px) {
@@ -92,3 +86,38 @@
   .ho-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .ho-tool-grid li { padding: 18px 10px; }
 }
+
+/* Store badges side by side, the same height (Google's and Apple's badges, shown as supplied) */
+.store-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
+.store-badge { display: inline-block; border-radius: 10px; transition: transform 0.15s; line-height: 0; }
+.store-badge:hover { transform: translateY(-2px); }
+.store-badge img { width: auto; height: 59px; }
+.ho-download .store-badges { justify-content: center; margin-top: 8px; }
+.ho-download .store-badge img { width: auto; height: 65px; }
+@media (max-width: 480px) {
+  .store-badges { gap: 10px; }
+  .store-badge img, .ho-download .store-badge img { height: 48px; }
+}
+
+/* iPhone waitlist: opened by the App Store badge (site.js) */
+html:has(.ios-dialog[open]) { overflow: hidden; }
+.ios-dialog { padding: 0; border: 0; background: transparent; width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: visible; color: var(--ho-text); }
+.ios-dialog::backdrop { background: rgba(13, 72, 55, 0.6); backdrop-filter: blur(2px); }
+.ios-dialog[open] { animation: ios-pop 0.22s ease-out; }
+@keyframes ios-pop { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ios-dialog[open] { animation: none; } }
+.ios-card { position: relative; background: var(--cream); border-radius: var(--radius); box-shadow: 0 24px 60px rgba(13, 72, 55, 0.35); padding: 0 clamp(20px, 5vw, 32px) clamp(20px, 4vw, 28px); text-align: center; max-height: calc(100dvh - 32px); overflow-y: auto; border-top: 8px solid var(--gold); }
+.ios-hamster { width: 170px; height: 170px; margin: 12px auto 4px; animation: ios-shake 0.5s ease-in-out 0.15s 2; }
+@keyframes ios-shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+@media (prefers-reduced-motion: reduce) { .ios-hamster { animation: none; } }
+.ios-card h2 { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2rem); color: var(--deep); margin-bottom: 0.3em; }
+.ios-card > p { margin: 0 0 18px; }
+.ios-card form { text-align: left; }
+.ios-card .field input { background: var(--white); }
+.ios-card .field input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(23, 96, 68, 0.25); }
+.ios-card .btn { width: 100%; }
+.ios-card .btn[disabled] { opacity: 0.7; cursor: progress; transform: none; }
+.ios-card .privacy-note a { color: var(--green); }
+.ios-card .form-status { text-align: left; }
+.ios-close { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--sage); color: var(--deep); font: 700 1.6rem/1 var(--body); cursor: pointer; }
+.ios-close:hover { background: #d3e4d7; }
