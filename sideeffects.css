@@ -79,6 +79,9 @@
 
 .ht-btn { min-height: 48px; padding: 10px 20px; border-radius: 999px; font: 800 1rem var(--body); cursor: pointer; border: 2px solid var(--teal); background: var(--teal); color: var(--white); box-shadow: 0 3px 0 rgba(32, 60, 69, 0.45); transition: background-color 0.15s, transform 0.15s; }
 .ht-btn:hover { background: var(--teal-dark); }
+.ht-btn-alt { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; background: var(--white); color: var(--teal-dark); }
+.ht-btn-alt:hover { background: var(--light); }
+.ht-btn[hidden] { display: none; }
 
 /* The table */
 .ht-stage { position: relative; isolation: isolate; border-radius: 28px; padding: clamp(14px, 2.5vw, 28px); background: radial-gradient(110% 80% at 50% 0%, #2d5866 0%, var(--teal-dark) 70%); box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.06), 0 14px 30px rgba(32, 60, 69, 0.25); color: var(--white); }
@@ -87,6 +90,14 @@
 .ht-players li { display: flex; align-items: center; gap: 7px; padding: 3px 12px 3px 4px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); }
 .ht-players .token { width: 22px; height: 22px; }
 .ht-players b { font: 700 1.05rem var(--heading); color: var(--sun); min-width: 1ch; }
+.ht-players li { transition: background-color 0.3s, box-shadow 0.3s, transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1); }
+.ht-players li.leader { box-shadow: inset 0 0 0 2px rgba(255, 213, 46, 0.7); }
+.ht-players li.champion { background: var(--sun); color: var(--ink); transform: scale(1.12); box-shadow: 0 0 22px rgba(255, 213, 46, 0.55); }
+.ht-players li.champion b { color: var(--ink); }
+/* "Round 3 · First to 10 points wins", and the winner at the end of a game */
+.ht-goal { margin: -4px 0 12px; text-align: center; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.78); }
+.game-over .ht-goal { margin: 2px 0 16px; font: 700 clamp(1.4rem, 3vw, 1.9rem) var(--heading); color: var(--sun); animation: ht-cheer 0.6s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes ht-cheer { from { transform: scale(0.4); opacity: 0; } to { transform: none; opacity: 1; } }
 .ht-condition { width: clamp(110px, 11vw, 140px); margin: 0 auto clamp(14px, 2vw, 22px); }
 .ht-flip-btn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 10px; }
 .ht-flip-btn:not(:disabled) .flip { animation: ht-nudge 1.6s ease-in-out infinite; }
@@ -161,12 +172,19 @@
 .ht-card:hover:not(:disabled) { transform: translateY(-5px); }
 .ht-card[aria-pressed='true'] { transform: translateY(-8px); box-shadow: 0 0 0 4px var(--sun), 0 8px 16px rgba(20, 30, 34, 0.25); }
 .ht-card:disabled { opacity: 0.4; cursor: default; }
-.ht-actions { display: flex; justify-content: flex-end; }
+/* Dragging a Side Effect onto a treatment. sideeffects.js scrolls the hand on a sideways swipe. */
+[data-step='3'] ~ .ht-tray .ht-card-side-effect:not(:disabled) { touch-action: none; cursor: grab; }
+.ht-card.dragging { opacity: 0.3; transform: none; }
+.ht-ghost { position: fixed; left: 0; top: 0; z-index: 1000; height: auto; pointer-events: none; border-radius: 4.5% / 3.3%; box-shadow: 0 14px 30px rgba(20, 30, 34, 0.45); will-change: transform; }
+.dragging-card, .dragging-card * { cursor: grabbing !important; }
+.ht-spot.drop-over { background: rgba(255, 213, 46, 0.2); box-shadow: inset 0 0 0 3px var(--sun); }
+.ht-spot.blocked.drop-over { background: rgba(210, 69, 110, 0.18); box-shadow: inset 0 0 0 3px var(--p2); }
+.ht-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 10px; }
 .ht-actions .ht-btn { margin-top: 12px; }
 .ht-tray :focus-visible { outline: 3px solid var(--teal-dark); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .ht-flip-btn:not(:disabled) .flip { animation: none; }
+  .ht-flip-btn:not(:disabled) .flip, .game-over .ht-goal { animation: none; }
   .ht *, .ht *::before { transition-duration: 0.01s !important; }
 }
 
@@ -214,11 +232,12 @@
 
 @media (max-width: 960px) {
   /* The rules go below the table. Your hand stays in reach at the bottom of the screen while the table scrolls past. */
-  .ht { display: flex; flex-direction: column; }
+  .ht { display: flex; flex-direction: column; align-items: stretch; }
   .ht-text { margin-top: 28px; }
   .ht-tray { position: sticky; bottom: 0; z-index: 10; margin: 12px -16px 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); border-radius: 18px 18px 0 0; background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(6px); box-shadow: 0 -4px 16px rgba(32, 60, 69, 0.14); }
   .ht-prompt { font-size: 0.98rem; }
   .ht-actions .ht-btn { margin-top: 8px; width: 100%; }
+  .ht-actions { flex-direction: column-reverse; }
   .ht-card { width: 96px; }
   .ht-card-side-effect { width: 88px; }
 }

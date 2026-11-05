@@ -22,6 +22,9 @@
 // The How to Play sample round. You play against two computer players (Player 2 and Player 3) who
 // pick at random. Each step waits for you, then the computer players take their turn and a button
 // moves on to the next step. The rules for the step on screen are in the matching .ht-panel.
+// After the sample round you can keep playing: rounds go on until someone has 10 points (the higher
+// score wins if more than one gets there in the same round). Scores live only in this page, so a
+// refresh starts over from the sample round.
 (function () {
   const root = document.getElementById('ht');
   const deckEl = document.getElementById('ht-deck');
@@ -46,7 +49,11 @@
   const BOTS = ['p2', 'p3'];
   const LABEL = { condition: 'Condition', treatment: 'Treatment', 'side-effect': 'Side Effect' };
   const SIZE = { condition: [600, 818], treatment: [600, 818], 'side-effect': [440, 605] };
+  const GOAL = 10; // points to win a full game
   const scores = { p1: 0, p2: 0, p3: 0 };
+  // 'demo' is the first sample round; 'game' is play to GOAL points after it.
+  let mode = 'demo';
+  let roundNo = 0; // rounds played in this game
 
   // Each round gets a new id, so a computer turn still animating from an old round stops.
   let round = 0;
@@ -72,6 +79,18 @@
     if (text != null) e.textContent = text;
     return e;
   };
+
+  // The "sign up" button next to the main one, only on pages that have the email signup.
+  const hasSignup = !!document.getElementById('signup');
+  const signupBtn = el('a', 'ht-btn ht-btn-alt', 'Get Kickstarter Updates');
+  signupBtn.href = '#signup';
+  signupBtn.dataset.scrollToSignup = '';
+  signupBtn.hidden = true;
+  button.before(signupBtn);
+  // The game's status line under the scores: first to 10, round number, and the final result.
+  const goalEl = el('p', 'ht-goal');
+  goalEl.hidden = true;
+  stage.querySelector('.ht-players').after(goalEl);
 
   function img(kind, name, cls) {
     const i = new Image(SIZE[kind][0], SIZE[kind][1]);
@@ -102,7 +121,10 @@
     prompt.textContent = text;
   }
 
-  function showButton(text, onClick) {
+  // The main button for the next step. With signup, the "Get Kickstarter Updates" button shows
+  // beside it (on pages that have the email signup).
+  function showButton(text, onClick, signup) {
+    signupBtn.hidden = !(signup && hasSignup);
     button.textContent = text;
     button.hidden = !text;
     button.disabled = false;
@@ -222,7 +244,8 @@
       ['condition', state.condition],
     ].forEach(([kind, n]) => { img(kind, n); });
 
-    stage.classList.remove('scored');
+    stage.classList.remove('scored', 'game-over');
+    root.querySelectorAll('.ht-players li').forEach((li) => li.classList.remove('leader', 'champion'));
     spotsEl.replaceChildren();
     clearHand();
     const card = flipCard('condition', state.condition);
@@ -233,7 +256,14 @@
     conditionEl.replaceChildren(flip);
     flip.addEventListener('click', revealCondition);
     setStep(1);
-    say('Tap the Condition card to flip it over.');
+    if (mode === 'game') {
+      roundNo++;
+      goalEl.hidden = false;
+      goalEl.textContent = `Round ${roundNo} · First to ${GOAL} points wins`;
+    } else {
+      goalEl.hidden = true;
+    }
+    say(`${mode === 'game' ? `Round ${roundNo}. ` : ''}Tap the Condition card to flip it over.`);
     showButton('');
   }
 
@@ -304,7 +334,7 @@
         ? `Now tap the treatment to attach ${sel.name} to.`
         : sel && sel.kind === 'spot'
           ? `Now tap the Side Effect from your hand to attach to ${sel.spot.name}.`
-          : 'Pick a Side Effect from your hand, then the treatment to attach it to (or the treatment first).';
+          : 'Drag a Side Effect from your hand onto a treatment, or tap the card and then the treatment.';
       say(`${extra ? extra + ' ' : ''}${how} ${n} of ${TO_PLACE} placed.`);
       showButton('');
     }
@@ -489,12 +519,64 @@
     });
     const parts = Object.keys(earned).map((p) => `${NAMES[p]} ${earned[p] ? '+' + earned[p] : '+0'}`);
     const yours = w.owner === 'p1' ? 'Your treatment won, so you get 3 points.' : `${w.name} was ${NAMES[w.owner]}'s, so they get 3 points.`;
-    say(`${yours} Each Side Effect on it scores 1 point for whoever played it. This round: ${parts.join(', ')}.`);
-    showButton('Play Another Round', () => {
-      newRound();
-      revealTable();
-      conditionEl.querySelector('button').focus({ preventScroll: true });
+    const summary = `${yours} Each Side Effect on it scores 1 point for whoever played it. This round: ${parts.join(', ')}.`;
+    markLeaders();
+    if (mode === 'demo') {
+      say(`${summary} That's the sample round! Keep going to see who gets to ${GOAL} points first.`);
+      showButton(`Keep Playing to ${GOAL} Points`, () => {
+        mode = 'game';
+        roundNo = 1; // the sample round was round 1, and its points count
+        nextRound();
+      }, true);
+      return;
+    }
+    const top = Math.max(...Object.values(scores));
+    const leaders = Object.keys(scores).filter((p) => scores[p] === top);
+    if (top >= GOAL && leaders.length === 1) return gameOver(leaders[0], summary);
+    if (top >= GOAL) {
+      say(`${summary} ${list(leaders.map((p) => NAMES[p]))} are tied at ${top} points, so one more round breaks the tie.`);
+      showButton('Play the Tiebreaker Round', nextRound);
+      return;
+    }
+    const need = GOAL - scores.p1;
+    say(`${summary} You have ${plural(scores.p1, 'point')}, ${need} away from winning.`);
+    showButton('Next Round', nextRound);
+  }
+
+  function nextRound() {
+    newRound();
+    revealTable();
+    conditionEl.querySelector('button').focus({ preventScroll: true });
+  }
+
+  // Highlights whoever is ahead on the scoreboard.
+  function markLeaders() {
+    const top = Math.max(...Object.values(scores));
+    root.querySelectorAll('.ht-players li').forEach((li) => {
+      const p = li.querySelector('[data-score]').dataset.score;
+      li.classList.toggle('leader', top > 0 && scores[p] === top);
     });
+  }
+
+  function gameOver(champ, summary) {
+    stage.classList.add('game-over');
+    const chip = root.querySelector(`[data-score="${champ}"]`).closest('li');
+    chip.classList.add('champion');
+    const final = Object.keys(scores).map((p) => `${NAMES[p]} ${scores[p]}`).join(', ');
+    goalEl.textContent = champ === 'p1' ? 'You win the game!' : `${NAMES[champ]} wins the game!`;
+    const won = champ === 'p1'
+      ? `You win the game with ${scores.p1} points! Final score: ${final}.`
+      : `${NAMES[champ]} wins the game with ${scores[champ]} points. Final score: ${final}.`;
+    say(`${summary} ${won}`);
+    showButton('Play Again', () => {
+      Object.keys(scores).forEach((p) => {
+        scores[p] = 0;
+        root.querySelector(`[data-score="${p}"]`).textContent = '0';
+      });
+      roundNo = 0;
+      nextRound();
+    }, true);
+    revealTable();
   }
 
   // ---- Clicks ---------------------------------------------------------------------------
@@ -512,6 +594,123 @@
       sideEffectPrompt();
     }
   });
+
+  // Dragging a Side Effect from your hand onto a treatment, as well as tapping. A press that
+  // moves more than a few pixels becomes a drag: a copy of the card follows the pointer and the
+  // treatment under it lights up. The click that follows a drag is ignored. On touch screens the
+  // browser doesn't scroll for these cards (touch-action: none), so a sideways swipe scrolls the
+  // hand here instead of picking up a card.
+  const DRAG_START = 8; // px
+  let drag = null;
+  let skipClick = false;
+
+  function spotAt(x, y) {
+    const hit = document.elementFromPoint(x, y);
+    const li = hit && hit.closest('.ht-spot');
+    return li ? state.spots.find((s) => s.el === li) : null;
+  }
+
+  function moveGhost(x, y) {
+    drag.ghost.style.transform = `translate(${x - drag.dx}px, ${y - drag.dy}px) rotate(-4deg)`;
+    const spot = spotAt(x, y);
+    if (spot !== drag.over) {
+      if (drag.over) drag.over.el.classList.remove('drop-over');
+      drag.over = spot;
+      if (spot) spot.el.classList.add('drop-over');
+    }
+    // Near the top or bottom of the screen, scroll so the table can be reached.
+    // Once the card has left your hand, holding it over the hand scrolls down too (on phones the
+    // hand covers the bottom of the table).
+    const trayTop = tray.getBoundingClientRect().top;
+    if (y < trayTop - 20) drag.leftHand = true;
+    const down = y > window.innerHeight - 50 || (drag.leftHand && y > trayTop + 10);
+    drag.scroll = y < 90 ? -12 : down ? 12 : 0;
+  }
+
+  function scrollTick() {
+    if (!drag) return;
+    if (drag.scroll && drag.started) {
+      window.scrollBy(0, drag.scroll);
+      moveGhost(drag.x, drag.y);
+    }
+    requestAnimationFrame(scrollTick);
+  }
+
+  function endDrag(drop) {
+    if (!drag) return;
+    const d = drag;
+    drag = null;
+    if (d.swiping) {
+      skipClick = true;
+      window.setTimeout(() => { skipClick = false; }, 0);
+      return;
+    }
+    if (!d.started) return;
+    d.ghost.remove();
+    d.card.classList.remove('dragging');
+    tray.classList.remove('dragging-card');
+    if (d.over) d.over.el.classList.remove('drop-over');
+    skipClick = true;
+    window.setTimeout(() => { skipClick = false; }, 0);
+    if (drop && d.over && state.step === 3 && !state.locked && !state.busy) place(d.over, d.name);
+  }
+
+  hand.addEventListener('pointerdown', (e) => {
+    const card = e.target.closest('.ht-card');
+    if (!card || card.disabled || state.busy || state.step !== 3 || state.locked || e.button > 0) return;
+    drag = { card, name: card.dataset.name, x0: e.clientX, y0: e.clientY, x: e.clientX, y: e.clientY, id: e.pointerId, touch: e.pointerType !== 'mouse', started: false, swiping: false, over: null, scroll: 0 };
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    drag.x = e.clientX;
+    drag.y = e.clientY;
+    const dx = e.clientX - drag.x0;
+    const dy = e.clientY - drag.y0;
+    if (drag.swiping) {
+      hand.scrollLeft = drag.left - dx;
+      return;
+    }
+    if (!drag.started) {
+      if (Math.hypot(dx, dy) < DRAG_START) return;
+      if (drag.touch && Math.abs(dy) < Math.abs(dx) / 2) { // mostly sideways
+        drag.swiping = true;
+        drag.left = hand.scrollLeft + dx;
+        return;
+      }
+      const box = drag.card.getBoundingClientRect();
+      const ghost = drag.card.querySelector('img').cloneNode();
+      ghost.className = 'ht-ghost';
+      ghost.alt = '';
+      ghost.style.width = `${box.width}px`;
+      document.body.append(ghost);
+      drag.ghost = ghost;
+      drag.dx = drag.x0 - box.left;
+      drag.dy = drag.y0 - box.top;
+      drag.started = true;
+      drag.card.classList.add('dragging');
+      tray.classList.add('dragging-card');
+      // Picking up a card also selects it, like tapping it would.
+      state.selected = null;
+      refreshTargets();
+      requestAnimationFrame(scrollTick);
+      // On phones the treatments can be hidden behind your hand: bring them up to drop onto.
+      const spotsTop = spotsEl.getBoundingClientRect().top;
+      if (spotsTop > tray.getBoundingClientRect().top - 80) {
+        window.scrollBy({ top: spotsTop - 100, behavior: reduce.matches ? 'auto' : 'smooth' });
+      }
+    }
+    e.preventDefault();
+    moveGhost(e.clientX, e.clientY);
+  }, { passive: false });
+
+  window.addEventListener('pointerup', (e) => { if (drag && e.pointerId === drag.id) endDrag(true); });
+  window.addEventListener('pointercancel', (e) => { if (drag && e.pointerId === drag.id) endDrag(false); });
+  hand.addEventListener('click', (e) => {
+    if (skipClick) { e.stopImmediatePropagation(); skipClick = false; }
+  }, true);
+  // Images are draggable by default in browsers; that would get in the way.
+  hand.addEventListener('dragstart', (e) => e.preventDefault());
 
   spotsEl.addEventListener('click', (e) => {
     const li = e.target.closest('.ht-spot');
